@@ -1,29 +1,44 @@
-// Inicializando o mapa
-const map = L.map('map').setView([51.505, -0.09], 13); // Exemplo de coordenadas de Londres
+// A chave de API do OpenWeatherMap (substitua pela sua)
+const apiKey = '8fe335f6d63a79460cd404936bde1cfe'; // Substitua com a sua chave da API
 
-// Adicionando o mapa base com o OpenStreetMap
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+// Função para buscar os dados do clima e calcular o risco de inundação
+document.getElementById('searchButton').addEventListener('click', function() {
+    const city = document.getElementById('city').value;
+    
+    if (!city) {
+        alert('Por favor, digite o nome de uma cidade.');
+        return;
+    }
+    
+    // URL da API do OpenWeatherMap para obter os dados de clima
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt_br`;
 
-const apiKey = '8fe335f6d63a79460cd404936bde1cfe';
-const url = `https://api.openweathermap.org/data/2.5/alerts?lat=51.505&lon=-0.09&appid=${apiKey}`;
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.cod === '404') {
+                alert('Cidade não encontrada!');
+                return;
+            }
 
-fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        if (data.alerts) {
-            // Exibe os alertas de risco no HTML
-            let alertsContent = '';
-            data.alerts.forEach(alert => {
-                alertsContent += `
-                    <div>
-                        <strong>${alert.event}</strong>
-                        <p>${alert.description}</p>
-                    </div>
-                `;
-            });
-            document.getElementById('alerts').innerHTML = alertsContent;
-        }
-    })
-    .catch(error => console.error('Erro ao obter os alertas:', error));
+            // Exibe os dados na página
+            document.getElementById('cityName').textContent = `Cidade: ${data.name}, ${data.sys.country}`;
+            document.getElementById('temperature').textContent = `Temperatura: ${data.main.temp}°C`;
+            document.getElementById('humidity').textContent = `Umidade: ${data.main.humidity}%`;
+            document.getElementById('weatherDescription').textContent = `Clima: ${data.weather[0].description}`;
+
+            // Calcular o risco de inundação baseado na umidade
+            let floodRisk = 'Risco baixo';
+            if (data.main.humidity > 80) {
+                floodRisk = 'Risco alto de inundação';
+            } else if (data.main.humidity > 60) {
+                floodRisk = 'Risco moderado de inundação';
+            }
+
+            document.getElementById('floodRisk').textContent = `Alerta de Inundação: ${floodRisk}`;
+        })
+        .catch(error => {
+            alert('Erro ao carregar os dados da API. Tente novamente mais tarde.');
+            console.error(error);
+        });
+});
