@@ -1,8 +1,5 @@
 # analisador-de-riscos-de-inundacao
 Projeto de análise de riscos de inundações com mapa interativo.
-Claro! Vamos criar um **README** bem estruturado para o seu projeto. O arquivo **README.md** é a primeira coisa que as pessoas (inclusive recrutadores) vão ver ao acessar o seu repositório no GitHub. Ele deve conter informações claras sobre o que o projeto faz, como configurá-lo, como usá-lo, entre outras informações úteis.
-
-Aqui está um modelo de README para o seu projeto de **Analisador de Riscos de Inundação**:
 
 ---
 
@@ -93,3 +90,4 @@ Contribuições são bem-vindas! Se você deseja colaborar com o projeto, siga o
 ## Licença
 
 Este projeto está licenciado sob a **MIT License**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+---
