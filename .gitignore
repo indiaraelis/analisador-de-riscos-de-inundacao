@@ -1,0 +1,14 @@
+# Ignorar a pasta node_modules (caso use Node.js no projeto)
+node_modules/
+
+# Ignorar arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de build
+build/
+dist/
+
+# Ignorar arquivos de configuração de IDEs (se usar uma)
+.idea/
+.vscode/
