@@ -6,13 +6,6 @@ Visualização interativa da vulnerabilidade às inundações no Brasil, constru
 
 ---
 
-## 🖼️ Demonstração
-
-![Demonstração do Mapa](./assets/demo-print1.png)
-![Busca de Cidade](./assets/demo-print2.png)
-
----
-
 ## 🧠 Objetivo
 
 Este projeto foi criado para facilitar a **interpretação espacial de dados sobre vulnerabilidade a inundações** em diferentes regiões do Brasil. Ele serve como um recurso educativo e técnico, usando tecnologias acessíveis e abertas para transformar dados vetoriais (shapefiles) em mapas interativos na web.
@@ -25,26 +18,27 @@ Este projeto foi criado para facilitar a **interpretação espacial de dados sob
 ```bash
 git clone https://github.com/seu-usuario/nome-do-projeto.git
 cd nome-do-projeto
-2. Ative um ambiente Python e instale dependências
 
+2. Ative um ambiente Python e instale dependências
 python -m venv .venv
 source .venv/bin/activate  # ou .venv\Scripts\activate no Windows
 pip install geopandas
+
 3. Converta o shapefile para GeoJSON
 Certifique-se de ter o shapefile em public/data/Brasil_vulnerabilidade_inundacoes/. Depois, rode:
-
 python mapa_inundacao.py
+
 4. Abra o mapa no navegador
 Basta abrir o arquivo public/mapa.html diretamente no navegador.
-```bash
+```
 
 ---
 ## 🛠️ Tecnologias e Ferramentas
-Leaflet.js — biblioteca JavaScript de mapas interativos
-GeoPandas — manipulação de dados espaciais com Python
-OpenStreetMap — camada base do mapa
-GeoJSON — formato leve para dados geográficos vetoriais
-HTML + JS puro — sem frameworks
+Leaflet.js — biblioteca JavaScript de mapas interativos  
+GeoPandas — manipulação de dados espaciais com Python  
+OpenStreetMap — camada base do mapa  
+GeoJSON — formato leve para dados geográficos vetoriais  
+HTML + JS puro — sem frameworks  
 
 ---
 
@@ -89,22 +83,22 @@ Coordenação de Eventos Críticos
 
 ## 🔍 Funcionalidades
 
-🔎 Busca de cidades por nome (com geocodificação)
-🗺️ Camada temática com cores por nível de vulnerabilidade
-📏 Legenda personalizada no canto inferior direito
-⚙️ Conversão automática do CRS (de SAD69 para WGS84)
-📁 Estrutura de pastas
+🔎 Busca de cidades por nome (com geocodificação)  
+🗺️ Camada temática com cores por nível de vulnerabilidade  
+📏 Legenda personalizada no canto inferior direito  
+⚙️ Conversão automática do CRS (de SAD69 para WGS84)  
+📁 Estrutura de pastas  
 
-├── mapa.html               # Mapa principal
-├── mapa_inundacao.py       # Script para gerar o GeoJSON
-├── public/
-│   └── data/
-│       └── Brasil_vulnerabilidade_inundacoes/
-│           └── *.shp      # Shapefiles de entrada
-│       └── vuln.geojson   # Saída gerada pelo script
-├── assets/
-│   └── Campo de Pesquisa.png        # Prints do mapa
-│   └── Mapa de Vulnerabilidade.png  # Prints do mapa
+├── mapa.html               # Mapa principal  
+├── mapa_inundacao.py       # Script para gerar o GeoJSON  
+├── public/  
+│   └── data/  
+│       └── Brasil_vulnerabilidade_inundacoes/  
+│           └── *.shp      # Shapefiles de entrada  
+│       └── vuln.geojson   # Saída gerada pelo script  
+├── assets/  
+│   └── Campo de Pesquisa.png        # Prints do mapa  
+│   └── Mapa de Vulnerabilidade.png  # Prints do mapa  
 
 ---
 
@@ -114,5 +108,5 @@ Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e com
 ---
 
 ## 👩‍💻 Autora
-Feito com 💚 por Indiara Elis
+Feito com 💚 por Indiara Elis  
 Especialista em geotecnologias e apaixonada por transformar dados em decisões.
