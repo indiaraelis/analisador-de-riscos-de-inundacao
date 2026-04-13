@@ -1,7 +1,7 @@
 import geopandas as gpd
 import os
 
-base_dir = r"REDACTED_LOCAL_PATH"
+base_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 input_shp = os.path.join(
     base_dir, "data",
     "Brasil_vulnerabilidade_inundacoes",
